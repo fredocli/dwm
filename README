@@ -1,3 +1,16 @@
+
+
+
+patch < ./dwm-bottomstack-6.1.diff 
+patch < ./dwm-centeredmaster-6.1.diff
+
+rm -f config.h
+
+sudo make clean install
+
+
+
+
 dwm - dynamic window manager
 ============================
 dwm is an extremely fast, small, and dynamic window manager for X.
