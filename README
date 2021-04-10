@@ -1,11 +1,11 @@
 
 
+les patch  ont ete modifies (j'ai enleve la partie config)
 
 patch < ./dwm-bottomstack-6.1.diff 
 patch < ./dwm-centeredmaster-6.1.diff
 
 rm -f config.h
-
 sudo make clean install
 
 

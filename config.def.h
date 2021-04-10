@@ -5,12 +5,11 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx    = 2;   /* pixel gap between clients */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=14" };
-static const char dmenufont[]       = "monospace:size=14";
+static const char *fonts[]          = { "Ubuntu Mono:size=14" };
+static const char dmenufont[]       = "Ubuntu Mono:size=14";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -82,7 +81,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_m,		setlayout,	{.v = &layouts[1]} },
  	{ MODKEY,			XK_f,		setlayout,	{.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,		XK_t,		setlayout,	{.v = &layouts[3]} },
-	{ MODKEY|ShiftMask,			XK_m,		setlayout,	{.v = &layouts[4]} },
+	{ MODKEY|ShiftMask,		XK_m,		setlayout,	{.v = &layouts[4]} },
 	/*
 
 	{ MODKEY,			XK_u,		setlayout,	{.v = &layouts[4]} },
@@ -92,6 +91,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_i,		setlayout,	{.v = &layouts[7]} },
 */
 	{ MODKEY,			XK_j,      focusstack,     {.i = +1 } }, 	
+	{ MODKEY,			XK_Tab,      focusstack,     {.i = +1 } }, 	
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 
 	{ MODKEY,			XK_h,		setmfact,       {.f = -0.05} }, 	
