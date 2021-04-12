@@ -147,6 +147,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_q,		quit,		{0} },
 
 	{ MODKEY,			XK_e,		spawn,          SHCMD("emoji") },
+	{ MODKEY|ShiftMask,		XK_e,		spawn,          SHCMD("emoji -p") },
 	{ MODKEY,			XK_n,		spawn,          SHCMD("nautilus") },
 	{ MODKEY,			XK_r,		spawn,          SHCMD("rofi -show run") },
 	{ MODKEY,			XK_s,		spawn,		SHCMD("snip") },
