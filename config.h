@@ -125,8 +125,8 @@ static Key keys[] = {
 	TAGKEYS(			XK_F2,		1)
 	TAGKEYS(			XK_F3,		2)
 	TAGKEYS(			XK_F4,		3)
-	{ MODKEY,			XK_F6,		spawn,		SHCMD("xbacklight -dec 200") },
-	{ MODKEY,			XK_F7,		spawn,		SHCMD("xbacklight -inc 200") },
+	{ MODKEY,			XK_F6,		spawn,		SHCMD("xbacklight -dec 200;kill -44 $(pidof dwmblocks)") },
+	{ MODKEY,			XK_F7,		spawn,		SHCMD("xbacklight -inc 200;kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,			XK_F9,		spawn,		SHCMD("pamixer --allow-boost -d 10; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,			XK_F10,		spawn,		SHCMD("pamixer --allow-boost -i 10; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,			XK_space,	zoom,		{0} },
