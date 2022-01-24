@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* Constants */
-#define TERMINAL "st"
+#define TERMINAL "alacritty"
 #define TERMCLASS "St"
 
 /* appearance */
@@ -50,12 +50,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	*/
-	/* class    instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
-	{ "Gimp",     NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
-	{ TERMCLASS,   NULL,       NULL,       	    0,            0,           1,         0,        -1 },
-	{ NULL,       NULL,       "Event Tester",   0,            0,           0,         1,        -1 },
-	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
-	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
+	/* class    	instance      	title			tags mask    isfloating   isterminal  noswallow  monitor */
+	{ "Gimp",     	NULL,       	NULL,			1 << 8,       0,           0,         0,        -1 },
+	{ TERMCLASS,   	NULL,       	NULL,			0,            0,           1,         0,        -1 },
+	{ NULL,       	NULL,       	"Event Tester", 0,            0,           0,         1,        -1 },
+	{ NULL,      	"spterm",    	NULL,			SPTAG(0),     1,           1,         0,        -1 },
+	{ NULL,      	"spcalc",    	NULL,			SPTAG(1),     1,           1,         0,        -1 },
+	{ "Yad",      	NULL,    		NULL,			0,     		  1,           0,         0,        -1 },
+	{ "Galculator", NULL,   		NULL,			0,     		  1,           0,         0,        -1 },
 };
 
 /* layout(s) */
@@ -151,12 +153,14 @@ static Key keys[] = {
 
 	{ MODKEY,			XK_e,		spawn,          SHCMD("emoji -p") },
 	{ MODKEY|ShiftMask,		XK_e,		spawn,          SHCMD("emoji") },
-	{ MODKEY,			XK_n,		spawn,          SHCMD("nautilus") },
+	{ MODKEY,			XK_n,		spawn,          SHCMD(TERMINAL " -e vifm") },
+	{ MODKEY|ShiftMask,	XK_n,		spawn,          SHCMD("nautilus") },
 	{ MODKEY,			XK_r,		spawn,		SHCMD("snip") },
 	{ MODKEY|ShiftMask,		XK_r,		spawn,          SHCMD("rofi -show drun") },
 	{ MODKEY,			XK_v,		spawn,		SHCMD("clipmenuw") },
 	{ MODKEY|ShiftMask,		XK_v,		spawn,		SHCMD("clipmenu") },
 	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") },
+	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("$BROWSER2") },
 	{ MODKEY,			XK_y,		spawn,		SHCMD("passmenu") },
 	{ MODKEY,			XK_Return,	spawn,		{.v = termcmd } },
 
