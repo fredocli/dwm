@@ -57,6 +57,7 @@ static const Rule rules[] = {
 	{ NULL,      	"spterm",    	NULL,			SPTAG(0),    0,			1,           1,         0,        -1 },
 	{ NULL,      	"spcalc",    	NULL,			SPTAG(1),    0,			1,           1,         0,        -1 },
 	{ "Yad",      	NULL,    		NULL,			0,     		 1,			1,           0,         0,        -1 },
+	{ "Float",      NULL,    		NULL,			0,     		 1,			1,           1,         1,        -1 },
 	{ "Galculator", NULL,   		NULL,			0,     		 1,			1,           0,         0,        -1 },
 };
 
