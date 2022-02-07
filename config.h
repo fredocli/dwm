@@ -155,7 +155,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_e,		spawn,          SHCMD("emoji -p") },
 	{ MODKEY|ShiftMask,		XK_e,		spawn,          SHCMD("emoji") },
 	{ MODKEY,			XK_n,		spawn,          SHCMD(TERMINAL " -e vifm") },
-	{ MODKEY|ShiftMask,	XK_n,		spawn,          SHCMD("nautilus") },
+	{ MODKEY|ShiftMask,		XK_n,		spawn,          SHCMD("nautilus") },
 	{ MODKEY,			XK_r,		spawn,		SHCMD("snip") },
 	{ MODKEY|ShiftMask,		XK_r,		spawn,          SHCMD("rofi -show drun") },
 	{ MODKEY,			XK_v,		spawn,		SHCMD("clipmenuw") },
@@ -163,6 +163,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") },
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("$BROWSER2") },
 	{ MODKEY,			XK_y,		spawn,		SHCMD("passmenu") },
+	{ MODKEY|ShiftMask,		XK_y,		spawn,		SHCMD("passmenu --type") },
 	{ MODKEY,			XK_Return,	spawn,		{.v = termcmd } },
 
 
