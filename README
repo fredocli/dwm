@@ -2,18 +2,17 @@
 
 les patch  ont ete modifies (j'ai enleve la partie config)
 
+
 patch < ./dwm-bottomstack-6.1.diff 
 patch < ./dwm-centeredmaster-6.1.diff
 
-rm -f config.h
+faire les modification de config dan config.h
+
 sudo make clean install
 
 
 
 
-dwm - dynamic window manager
-============================
-dwm is an extremely fast, small, and dynamic window manager for X.
 
 
 Requirements
@@ -29,7 +28,7 @@ the /usr/local namespace by default).
 Afterwards enter the following command to build and install dwm (if
 necessary as root):
 
-   sudo  make clean install
+sudo  make clean install
 
 
 Running dwm
