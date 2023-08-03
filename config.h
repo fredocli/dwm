@@ -3,16 +3,16 @@
 
 /* Constants */
 
-#define TERMINAL "alacritty"
+#define TERMINAL "st"
 #define TERMCLASS "St"
 
 /* appearance */
 static unsigned int borderpx  = 2;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
-static unsigned int gappih    = 10;       /* horiz inner gap between windows */
-static unsigned int gappiv    = 10;       /* vert inner gap between windows */
-static unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
-static unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
+static unsigned int gappih    = 0;       /* horiz inner gap between windows */
+static unsigned int gappiv    = 0;       /* vert inner gap between windows */
+static unsigned int gappoh    = 0;       /* horiz outer gap between windows and screen edge */
+static unsigned int gappov    = 0;       /* vert outer gap between windows and screen edge */
 static int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
@@ -131,10 +131,10 @@ static Key keys[] = {
 	TAGKEYS(				XK_F3,		2)
 	TAGKEYS(				XK_F4,		3)
 
-	{ MODKEY,				XK_F6,		spawn,		SHCMD("xbacklight -dec 200;kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,				XK_F7,		spawn,		SHCMD("xbacklight -inc 200;kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,				XK_F9,		spawn,		SHCMD("pamixer --allow-boost -d 10; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,				XK_F10,		spawn,		SHCMD("pamixer --allow-boost -i 10; kill -44 $(pidof dwmblocks)") },
+	{ MODKEY,				XK_F5,		spawn,		SHCMD("xbacklight -dec 200;kill -44 $(pidof dwmblocks)") },
+	{ MODKEY,				XK_F6,		spawn,		SHCMD("xbacklight -inc 200;kill -44 $(pidof dwmblocks)") },
+	//{ MODKEY,				XK_F2,		spawn,		SHCMD("pamixer --allow-boost -d 10; kill -44 $(pidof dwmblocks)") },
+	//{ MODKEY,				XK_F3,		spawn,		SHCMD("pamixer --allow-boost -i 10; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,				XK_space,	zoom,		{0} },
 	{ MODKEY,				XK_f,		togglefloating,	{0} },		
 	{ MODKEY,				XK_m,		setlayout,	{.v = &layouts[0]} },
@@ -176,12 +176,15 @@ static Key keys[] = {
 	{ 0, 					XF86XK_AudioStop,			spawn,		{.v = (const char*[]){ "mpc", "toggle", NULL } } },
 	{ 0, 					XF86XK_AudioRewind,			spawn,		{.v = (const char*[]){ "mpc", "seek", "-10", NULL } } },
 	{ 0, 					XF86XK_AudioForward,		spawn,		{.v = (const char*[]){ "mpc", "seek", "+10", NULL } } },
-
-
+	
+	{ 0, 					XF86XK_Launch2,				spawn,		SHCMD("rofi -show drun") },
+	{ 0, 					XF86XK_Favorites,			spawn,		SHCMD("rofi -show drun") },
+	{ 0, 					XF86XK_MonBrightnessDown,			spawn,		SHCMD("xbacklight -dec 200;kill -44 $(pidof dwmblocks)") },
+	{ 0, 					XF86XK_MonBrightnessUp,			spawn,			SHCMD("xbacklight -inc 200;kill -44 $(pidof dwmblocks)") },
 
 };
 
-/* button definitions */
+/* button definitions */ 
 /* click can be 
 
 ClkLtSymbol, 
@@ -194,12 +197,19 @@ static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 #ifndef __OpenBSD__
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
-	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
-	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
-	{ ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} },
-	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} },
-	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} },
+
+	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} }, // left click 
+	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} }, // middle click
+	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} }, // right click
+	
+	{ ClkStatusText,        0,				Button4,        sigdwmblocks,   {.i = 4} }, // mouse scroll down
+	{ ClkStatusText,        0,     			Button5,        sigdwmblocks,   {.i = 5} }, // mouse scroll up
+
+	{ ClkStatusText,        ShiftMask,		Button1,        sigdwmblocks,   {.i = 6} }, // left click + shift
+	{ ClkStatusText,        ShiftMask,      Button2,        sigdwmblocks,   {.i = 7} }, // middle click + shift
+	{ ClkStatusText,        ShiftMask,      Button3,        sigdwmblocks,   {.i = 8} }, // right click + shift
+
+
 #endif
 
 	// ClkWinTitle
