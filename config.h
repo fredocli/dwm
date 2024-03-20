@@ -61,6 +61,7 @@ static const Rule rules[] = {
 	{ "Yad",      	NULL,    		NULL,			0,     		 1,			1,           0,         0,        -1 },
 	{ "Float",      NULL,    		NULL,			0,     		 1,			1,           1,         1,        -1 },
 	{ "Galculator", NULL,   		NULL,			0,     		 1,			1,           0,         0,        -1 },
+	{ "zenity",		NULL,   		NULL,			0,     		 1,			1,           0,         0,        -1 },
 };
 
 /* layout(s) */
